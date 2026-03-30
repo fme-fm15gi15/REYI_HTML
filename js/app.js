@@ -2,7 +2,7 @@
 const SUPABASE_URL = 'https://luzjbpklkheytbrylyyt.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_nm_Y4iTvaZkVTtb6AR3gQA_6AZzkled';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===== DOM References =====
 const projectsGrid   = document.getElementById('projects-grid');
@@ -18,7 +18,7 @@ let allProjects = [];
 async function fetchProjects() {
   showState('loading');
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('projects')
     .select('*')
     .order('featured', { ascending: false })
