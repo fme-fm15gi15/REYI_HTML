@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-logo">Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#hero">首頁</a></li>
+      <li><a href="#projects">作品集</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Your Name</h1>
+      <p class="hero-title">Full Stack Developer</p>
+      <p class="hero-desc">熱衷於打造優雅的使用者體驗與高效能的後端系統。</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">查看作品</a>
+        <a href="#contact" class="btn btn-outline">聯絡我</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-avatar">YN</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>作品集</h2>
+        <p>以下作品資料來自 Supabase</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-filter="all">全部</button>
+      </div>
+
+      <!-- Loading State -->
+      <div id="projects-loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>載入中...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="projects-error" class="error-state hidden">
+        <p>無法載入作品資料，請稍後再試。</p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid" class="projects-grid hidden"></div>
+
+      <!-- Empty State -->
+      <div id="projects-empty" class="empty-state hidden">
+        <p>目前還沒有作品，請先至 Supabase 新增資料。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>技能</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Vue</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Supabase</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>聯絡我</h2>
+        <p>有任何合作機會或問題，歡迎透過以下方式聯絡。</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link">
+          <span class="contact-icon">✉</span>
+          <span>your@email.com</span>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-icon">⌥</span>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Your Name — Built with HTML/CSS/JS + Supabase</p>
+  </footer>
+
+  <!-- Supabase JS SDK via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
