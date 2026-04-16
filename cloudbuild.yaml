@@ -1,0 +1,29 @@
+steps:
+  # 步驟 1：Build Docker image 並推到 Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repo/reyi-html:$COMMIT_SHA'
+      - '.'
+
+  # 步驟 2：Push image 到 Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repo/reyi-html:$COMMIT_SHA'
+
+  # 步驟 3：Deploy 到 Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'reyi-html'                          # Cloud Run 服務名稱
+      - '--image=asia-east1-docker.pkg.dev/$PROJECT_ID/my-repo/reyi-html:$COMMIT_SHA'
+      - '--region=asia-east1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'            # 公開存取
+
+images:
+  - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repo/reyi-html:$COMMIT_SHA'
